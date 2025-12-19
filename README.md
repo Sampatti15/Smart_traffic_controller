@@ -10,5 +10,6 @@
 # TechStack
 - This project uses Python, Pygame, and AI logic for smart decision making.
 
-<img width="934" height="950" alt="screenshot" src="https://github.com/user-attachments/assets/9af0c4a6-d472-4a90-8912-9dabaf38773e" />
+<img width="973" height="966" alt="Screenshot" src="https://github.com/user-attachments/assets/4c193163-f45e-46e5-9f4a-d7ebc1246116" />
+
 
