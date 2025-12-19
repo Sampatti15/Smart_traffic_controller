@@ -2,7 +2,7 @@ import pygame
 import random
 import time
 
-# ================== CONFIG ==================
+# configuration
 WIDTH, HEIGHT = 800, 800
 FPS = 60
 
@@ -14,7 +14,7 @@ AMBULANCE_SPEED = 3
 MIN_GREEN = 3
 MAX_GREEN = 6
 
-# ================== PATHS ==================
+# paths
 BG_IMAGE = "images/intersection.png"
 
 SIGNAL_IMAGES = {
@@ -38,14 +38,14 @@ SIGNAL_POS = {
     "RIGHT": (470, 380)
 }
 
-# ================== INIT ==================
+# init
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Smart Traffic Controller (AI)")
 clock = pygame.time.Clock()
 font = pygame.font.SysFont(None, 24)
 
-# ================== HELPERS ==================
+# helpers
 def load_image(path, size):
     try:
         img = pygame.image.load(path).convert_alpha()
@@ -55,7 +55,7 @@ def load_image(path, size):
         surf.fill((200, 200, 200))
         return surf
 
-# ================== LOAD ASSETS ==================
+# loading of assets
 bg = load_image(BG_IMAGE, (WIDTH, HEIGHT))
 signal_imgs = {
     k: load_image(v, (30, 30)) for k, v in SIGNAL_IMAGES.items()
@@ -65,7 +65,7 @@ vehicle_imgs = {
 }
 ambulance_img = load_image(AMBULANCE_IMAGE, (50, 30))
 
-# ================== VEHICLE ==================
+# vehicles
 class Vehicle:
     def __init__(self, direction, ambulance=False):
         self.direction = direction
@@ -87,7 +87,7 @@ class Vehicle:
     def draw(self):
         screen.blit(self.image, (self.x, self.y))
 
-# ================== CONTROLLER ==================
+# controllers
 class TrafficController:
     def __init__(self):
         self.signals = {d: "RED" for d in DIRECTIONS}
@@ -147,7 +147,7 @@ class TrafficController:
         for d in DIRECTIONS:
             screen.blit(signal_imgs[self.signals[d]], SIGNAL_POS[d])
 
-# ================== MAIN ==================
+# main content
 controller = TrafficController()
 spawn_tick = 0
 running = True
@@ -176,3 +176,4 @@ while running:
     pygame.display.flip()
 
 pygame.quit()
+
